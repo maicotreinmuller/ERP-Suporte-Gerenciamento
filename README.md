@@ -37,7 +37,7 @@ Embora o projeto não possua um backend estruturado, ele utiliza armazenamento l
 3. Clone o repositório:
 
    ```bash
-   git clone https://github.com/maicotreinmuller/erp-suporte.git
+   git clone https://github.com/maicotreinmuller/erpsuporteonline.git
    ```
 
 4. Acesse o diretório do projeto:
