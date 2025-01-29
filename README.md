@@ -37,13 +37,13 @@ Embora o projeto não possua um backend estruturado, ele utiliza armazenamento l
 3. Clone o repositório:
 
    ```bash
-   git clone https://github.com/maicotreinmuller/erpsuporteonline.git
+   git clone https://github.com/maicotreinmuller/erpsuporte.git
    ```
 
 4. Acesse o diretório do projeto:
 
    ```bash
-   cd erp-suporte
+   cd erpsuporte
    ```
 
 5. Instale as dependências:
