@@ -24,7 +24,6 @@ export const AddressFields = ({ formData, handleInputChange, fetchAddress }: Add
               {...inputProps}
               id="cep"
               name="cep"
-              required
             />
           )}
         </InputMask>
@@ -38,7 +37,6 @@ export const AddressFields = ({ formData, handleInputChange, fetchAddress }: Add
             name="street"
             value={formData.street}
             onChange={handleInputChange}
-            required
           />
         </div>
 
@@ -49,7 +47,6 @@ export const AddressFields = ({ formData, handleInputChange, fetchAddress }: Add
             name="number"
             value={formData.number}
             onChange={handleInputChange}
-            required
           />
         </div>
       </div>
@@ -72,7 +69,6 @@ export const AddressFields = ({ formData, handleInputChange, fetchAddress }: Add
             name="neighborhood"
             value={formData.neighborhood}
             onChange={handleInputChange}
-            required
           />
         </div>
 
@@ -83,7 +79,6 @@ export const AddressFields = ({ formData, handleInputChange, fetchAddress }: Add
             name="city"
             value={formData.city}
             onChange={handleInputChange}
-            required
           />
         </div>
 
@@ -94,7 +89,6 @@ export const AddressFields = ({ formData, handleInputChange, fetchAddress }: Add
             name="state"
             value={formData.state}
             onChange={handleInputChange}
-            required
           />
         </div>
       </div>

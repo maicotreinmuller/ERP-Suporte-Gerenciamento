@@ -52,7 +52,6 @@ export const PersonalFields = ({ formData, handleInputChange }: PersonalFieldsPr
           name="document"
           value={formData.document}
           onChange={handleDocumentChange}
-          required
           placeholder="Digite CPF ou CNPJ"
           maxLength={18}
         />
@@ -71,7 +70,6 @@ export const PersonalFields = ({ formData, handleInputChange }: PersonalFieldsPr
               {...inputProps}
               id="phone"
               name="phone"
-              required
             />
           )}
         </InputMask>
@@ -85,7 +83,6 @@ export const PersonalFields = ({ formData, handleInputChange }: PersonalFieldsPr
           type="email"
           value={formData.email}
           onChange={handleInputChange}
-          required
         />
       </div>
     </>
