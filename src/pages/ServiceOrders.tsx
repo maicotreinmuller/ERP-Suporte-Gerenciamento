@@ -121,15 +121,15 @@ const ServiceOrders = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="pl-64">
-        <div className="p-8">
-          <div className="flex justify-between items-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900">Ordens de Serviço</h1>
-            <div className="space-x-4">
-              <Button variant="outline" onClick={handleExportToExcel}>
+      <div className="w-full">
+        <div className="p-4 md:p-8">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Ordens de Serviço</h1>
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 w-full sm:w-auto">
+              <Button variant="outline" onClick={handleExportToExcel} className="w-full sm:w-auto">
                 Exportar Excel
               </Button>
-              <FormModal title="Nova Ordem de Serviço" triggerText="Nova Ordem">
+              <FormModal title="Nova Ordem de Serviço" triggerText={<Button className="w-full sm:w-auto">Nova Ordem</Button>}>
                 <ServiceOrderForm
                   onSubmit={handleSubmit}
                   lastOrderNumber={Math.max(...orders.map(o => Number(o.orderNumber)), 0)}

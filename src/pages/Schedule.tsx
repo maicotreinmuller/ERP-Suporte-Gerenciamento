@@ -78,11 +78,11 @@ const Schedule = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="pl-64">
-        <div className="p-8">
-          <div className="flex justify-between items-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900">Agenda</h1>
-            <FormModal title="Novo Agendamento" triggerText="Novo Agendamento">
+      <div className="w-full">
+        <div className="p-4 md:p-8">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Agenda</h1>
+            <FormModal title="Novo Agendamento" triggerText={<Button className="w-full sm:w-auto">Novo Agendamento</Button>}>
               <ScheduleForm onSubmit={handleSubmit} />
             </FormModal>
           </div>

@@ -80,15 +80,15 @@ const Clients = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="pl-64">
-        <div className="p-8">
-          <div className="flex justify-between items-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900">Clientes</h1>
-            <div className="space-x-4">
-              <Button variant="outline" onClick={handleExportToExcel}>
+      <div className="w-full">
+        <div className="p-4 md:p-8">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Clientes</h1>
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 w-full sm:w-auto">
+              <Button variant="outline" onClick={handleExportToExcel} className="w-full sm:w-auto">
                 Exportar Excel
               </Button>
-              <FormModal title="Novo Cliente" triggerText="Novo Cliente">
+              <FormModal title="Novo Cliente" triggerText={<Button className="w-full sm:w-auto">Novo Cliente</Button>}>
                 <ClientForm onSubmit={handleSubmit} />
               </FormModal>
             </div>
@@ -102,8 +102,9 @@ const Clients = () => {
             />
           </div>
 
-          <div className="bg-white rounded-xl shadow-md">
-            <table className="min-w-full divide-y divide-gray-200">
+          <div className="bg-white rounded-xl shadow-md overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -172,6 +173,7 @@ const Clients = () => {
                 ))}
               </tbody>
             </table>
+            </div>
           </div>
         </div>
       </div>

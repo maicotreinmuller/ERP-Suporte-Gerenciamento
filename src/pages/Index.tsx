@@ -17,11 +17,11 @@ const Index = () => {
   const totalOrders = orders.length;
 
   return (
-    <div className="w-full p-8 pl-64">
+    <div className="w-full p-4 md:p-8">
       <div className="max-w-[1600px] mx-auto">
-        <div className="flex items-center justify-between mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-        </div>
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Dashboard</h1>
+          </div>
         
         <div className="bg-white rounded-xl shadow-sm p-6 mb-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

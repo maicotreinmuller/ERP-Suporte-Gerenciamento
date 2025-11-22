@@ -138,9 +138,9 @@ const DataManagement = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="pl-64">
-        <div className="p-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-8">Gerenciar Dados</h1>
+      <div className="w-full">
+        <div className="p-4 md:p-8">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">Gerenciar Dados</h1>
           
           <div className="space-y-4">
             <div className="p-6 bg-white rounded-xl shadow-md">
