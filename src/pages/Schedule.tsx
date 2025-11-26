@@ -101,15 +101,11 @@ const Schedule = () => {
             />
           </div>
 
-          <div className="bg-white rounded-xl shadow-md overflow-hidden">
-            <div className="overflow-x-auto">
-              <ScheduleTable
-                schedules={filteredSchedules}
-                onEdit={handleEdit}
-                onDelete={handleDelete}
-              />
-            </div>
-          </div>
+          <ScheduleTable
+            schedules={filteredSchedules}
+            onEdit={handleEdit}
+            onDelete={handleDelete}
+          />
         </div>
       </div>
     </div>

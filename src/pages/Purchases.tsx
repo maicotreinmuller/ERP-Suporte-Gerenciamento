@@ -106,15 +106,11 @@ const Purchases = () => {
             />
           </div>
 
-          <div className="bg-white rounded-xl shadow-md overflow-hidden">
-            <div className="overflow-x-auto">
-              <PurchasesTable
-                purchases={filteredPurchases}
-                onEdit={handleEdit}
-                onDelete={handleDelete}
-              />
-            </div>
-          </div>
+          <PurchasesTable
+            purchases={filteredPurchases}
+            onEdit={handleEdit}
+            onDelete={handleDelete}
+          />
         </div>
       </div>
     </div>

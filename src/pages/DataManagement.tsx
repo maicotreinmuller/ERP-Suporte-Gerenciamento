@@ -139,40 +139,37 @@ const DataManagement = () => {
   return (
     <div className="min-h-screen bg-background">
       <div className="w-full">
-        <div className="p-4 md:p-8">
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">Gerenciar Dados</h1>
+        <div className="p-4 md:p-6 lg:p-8">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 md:mb-8">Gerenciar Dados</h1>
           
           <div className="space-y-4">
-            <div className="p-6 bg-white rounded-xl shadow-md">
-              <h2 className="text-xl font-semibold mb-2">Exportação em Excel</h2>
-              <p className="text-gray-600 mb-4">
+            <div className="p-4 md:p-6 bg-white rounded-xl shadow-md">
+              <h2 className="text-lg md:text-xl font-semibold mb-2">Exportação em Excel</h2>
+              <p className="text-sm md:text-base text-gray-600 mb-4">
                 Exporte todos os dados do sistema em uma planilha Excel organizada. 
-                Cada tipo de dado (clientes, ordens de serviço, compras e agenda) 
-                será exportado em uma aba separada para melhor organização.
+                Cada tipo de dado será exportado em uma aba separada.
               </p>
-              <Button onClick={handleExportToExcel}>
+              <Button onClick={handleExportToExcel} className="w-full sm:w-auto">
                 Exportar em Excel
               </Button>
             </div>
 
-            <div className="p-6 bg-white rounded-xl shadow-md">
-              <h2 className="text-xl font-semibold mb-2">Backup de Dados</h2>
-              <p className="text-gray-600 mb-4">
+            <div className="p-4 md:p-6 bg-white rounded-xl shadow-md">
+              <h2 className="text-lg md:text-xl font-semibold mb-2">Backup de Dados</h2>
+              <p className="text-sm md:text-base text-gray-600 mb-4">
                 Faça o download de um arquivo JSON contendo todos os dados do sistema.
-                Este arquivo pode ser usado posteriormente para restaurar os dados
-                em caso de necessidade ou para transferir para outro dispositivo.
+                Este arquivo pode ser usado para restaurar os dados posteriormente.
               </p>
-              <Button variant="outline" onClick={handleExportData}>
+              <Button variant="outline" onClick={handleExportData} className="w-full sm:w-auto">
                 Exportar Dados
               </Button>
             </div>
 
-            <div className="p-6 bg-white rounded-xl shadow-md">
-              <h2 className="text-xl font-semibold mb-2">Importação de Dados</h2>
-              <p className="text-gray-600 mb-4">
+            <div className="p-4 md:p-6 bg-white rounded-xl shadow-md">
+              <h2 className="text-lg md:text-xl font-semibold mb-2">Importação de Dados</h2>
+              <p className="text-sm md:text-base text-gray-600 mb-4">
                 Restaure dados previamente exportados através de um arquivo JSON de backup.
-                Esta operação substituirá todos os dados atuais do sistema pelos dados
-                contidos no arquivo de backup.
+                Esta operação substituirá todos os dados atuais.
               </p>
               <div>
                 <input
@@ -185,6 +182,7 @@ const DataManagement = () => {
                 <Button
                   variant="secondary"
                   onClick={() => document.getElementById('import-file')?.click()}
+                  className="w-full sm:w-auto"
                 >
                   Importar Dados
                 </Button>

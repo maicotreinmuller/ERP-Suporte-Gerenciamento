@@ -23,10 +23,10 @@ const App = () => (
         <SidebarProvider defaultOpen={true}>
           <div className="flex min-h-screen w-full">
             <AppSidebar />
-            <div className="flex flex-1 flex-col">
+            <div className="flex flex-1 flex-col pb-16 md:pb-0">
               <header className="sticky top-0 z-10 flex h-14 items-center border-b bg-background px-4 md:px-6">
-                <SidebarTrigger />
-                <h2 className="ml-4 text-lg font-semibold md:text-xl">ERP Suporte</h2>
+                <SidebarTrigger className="md:inline-flex hidden" />
+                <h2 className="ml-4 md:ml-4 text-lg font-semibold md:text-xl">ERP Suporte</h2>
               </header>
               <main className="flex-1">
                 <Routes>

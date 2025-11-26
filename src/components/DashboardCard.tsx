@@ -20,20 +20,20 @@ const DashboardCard = ({
 }: DashboardCardProps) => {
   return (
     <div className={cn(
-      "bg-white rounded-xl border shadow-sm p-6 transition-all duration-200 hover:shadow-md hover:scale-[1.02] relative",
+      "bg-white rounded-lg md:rounded-xl border shadow-sm p-4 md:p-6 transition-all duration-200 hover:shadow-md relative",
       className
     )}>
       <div className={cn(
-        "p-2 rounded-full bg-white/80 shadow-sm absolute top-4 right-4",
+        "p-1.5 md:p-2 rounded-full bg-white/80 shadow-sm absolute top-3 right-3 md:top-4 md:right-4",
         iconClassName
       )}>
-        <Icon className="w-4 h-4" />
+        <Icon className="w-3.5 h-3.5 md:w-4 md:h-4" />
       </div>
       <div>
-        <h3 className="text-sm font-medium text-gray-600">{title}</h3>
-        <p className="text-2xl font-bold text-gray-900 mt-2">{value}</p>
+        <h3 className="text-xs md:text-sm font-medium text-gray-600">{title}</h3>
+        <p className="text-xl md:text-2xl font-bold text-gray-900 mt-1 md:mt-2">{value}</p>
         {description && (
-          <p className="text-sm text-gray-500 mt-2">{description}</p>
+          <p className="text-xs md:text-sm text-gray-500 mt-1 md:mt-2">{description}</p>
         )}
       </div>
     </div>

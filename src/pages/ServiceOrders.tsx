@@ -152,15 +152,11 @@ const ServiceOrders = () => {
             />
           </div>
 
-          <div className="bg-white rounded-xl shadow-md overflow-hidden">
-            <div className="overflow-x-auto">
-              <ServiceOrdersTable
-                orders={filteredOrders}
-                onEdit={handleEdit}
-                onDelete={handleDelete}
-              />
-            </div>
-          </div>
+          <ServiceOrdersTable
+            orders={filteredOrders}
+            onEdit={handleEdit}
+            onDelete={handleDelete}
+          />
         </div>
       </div>
     </div>

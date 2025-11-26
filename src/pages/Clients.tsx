@@ -102,7 +102,8 @@ const Clients = () => {
             />
           </div>
 
-          <div className="bg-white rounded-xl shadow-md overflow-hidden">
+          {/* Desktop Table View */}
+          <div className="hidden md:block bg-white rounded-xl shadow-md overflow-hidden">
             <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
@@ -174,6 +175,57 @@ const Clients = () => {
               </tbody>
             </table>
             </div>
+          </div>
+
+          {/* Mobile Card View */}
+          <div className="md:hidden space-y-4">
+            {filteredClients.map((client) => (
+              <div key={client.id} className="bg-white rounded-lg shadow-md p-4">
+                <div className="flex justify-between items-start mb-3">
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900 text-base">{client.name}</h3>
+                    <p className="text-sm text-gray-500 mt-1">{client.document}</p>
+                  </div>
+                  <div className="flex gap-1">
+                    <FormModal
+                      title="Editar Cliente"
+                      triggerText={
+                        <Button 
+                          variant="ghost" 
+                          size="icon"
+                          className="h-8 w-8"
+                        >
+                          <Edit2 className="h-4 w-4" />
+                        </Button>
+                      }
+                    >
+                      <ClientForm
+                        onSubmit={(data) => handleEdit(client.id!, data)}
+                        initialData={client}
+                      />
+                    </FormModal>
+                    <DeleteConfirmation 
+                      onDelete={() => handleDelete(client.id!)}
+                      description="Deseja realmente excluir este cliente?"
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center gap-2">
+                    <span className="text-gray-500">Email:</span>
+                    <span className="text-gray-900">{client.email}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-gray-500">Telefone:</span>
+                    <span className="text-gray-900">{client.phone}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-gray-500 whitespace-nowrap">Endereço:</span>
+                    <span className="text-gray-900">{`${client.street}, ${client.number} - ${client.city}/${client.state}`}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

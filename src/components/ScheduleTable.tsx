@@ -54,54 +54,101 @@ const ScheduleTable = ({ schedules, onEdit, onDelete }: ScheduleTableProps) => {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-md overflow-hidden">
-      <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-gray-200">
-        <thead className="bg-gray-50">
-          <tr>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Data
-            </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Cliente
-            </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Descrição
-            </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Prioridade
-            </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Status
-            </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Ações
-            </th>
-          </tr>
-        </thead>
-        <tbody className="bg-white divide-y divide-gray-200">
-          {schedules.map((schedule) => (
-            <tr key={schedule.id} className="hover:bg-gray-50">
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {new Date(schedule.date).toLocaleDateString('pt-BR')}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {schedule.clientName}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {schedule.description}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${getPriorityColor(schedule.priority)}`}>
-                  {getPriorityLabel(schedule.priority)}
-                </span>
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${getStatusColor(schedule.status)}`}>
-                  {getStatusLabel(schedule.status)}
-                </span>
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 space-x-2">
+    <>
+      {/* Desktop Table View */}
+      <div className="hidden md:block bg-white rounded-xl shadow-md overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="min-w-full divide-y divide-gray-200">
+          <thead className="bg-gray-50">
+            <tr>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Data
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Cliente
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Descrição
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Prioridade
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Status
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Ações
+              </th>
+            </tr>
+          </thead>
+          <tbody className="bg-white divide-y divide-gray-200">
+            {schedules.map((schedule) => (
+              <tr key={schedule.id} className="hover:bg-gray-50">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {new Date(schedule.date).toLocaleDateString('pt-BR')}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {schedule.clientName}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {schedule.description}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${getPriorityColor(schedule.priority)}`}>
+                    {getPriorityLabel(schedule.priority)}
+                  </span>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${getStatusColor(schedule.status)}`}>
+                    {getStatusLabel(schedule.status)}
+                  </span>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 space-x-2">
+                  <FormModal
+                    title="Editar Agendamento"
+                    triggerText={
+                      <Button 
+                        variant="ghost" 
+                        size="icon"
+                        className="h-8 w-8"
+                        title="Editar agendamento"
+                      >
+                        <Edit2 className="h-4 w-4" />
+                      </Button>
+                    }
+                  >
+                    <ScheduleForm
+                      onSubmit={(data) => onEdit(schedule.id!, data)}
+                      initialData={schedule}
+                    />
+                  </FormModal>
+                  <DeleteConfirmation 
+                    onDelete={() => {
+                      onDelete(schedule.id!);
+                      toast.success('Agendamento excluído com sucesso!');
+                    }}
+                    description="Deseja realmente excluir este agendamento?"
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        </div>
+      </div>
+
+      {/* Mobile Card View */}
+      <div className="md:hidden space-y-4">
+        {schedules.map((schedule) => (
+          <div key={schedule.id} className="bg-white rounded-lg shadow-md p-4">
+            <div className="flex justify-between items-start mb-3">
+              <div className="flex-1">
+                <h3 className="font-semibold text-gray-900 text-base">{schedule.clientName}</h3>
+                <p className="text-xs text-gray-500 mt-1">
+                  {new Date(schedule.date).toLocaleDateString('pt-BR')}
+                </p>
+              </div>
+              <div className="flex gap-1">
                 <FormModal
                   title="Editar Agendamento"
                   triggerText={
@@ -109,7 +156,6 @@ const ScheduleTable = ({ schedules, onEdit, onDelete }: ScheduleTableProps) => {
                       variant="ghost" 
                       size="icon"
                       className="h-8 w-8"
-                      title="Editar agendamento"
                     >
                       <Edit2 className="h-4 w-4" />
                     </Button>
@@ -127,13 +173,26 @@ const ScheduleTable = ({ schedules, onEdit, onDelete }: ScheduleTableProps) => {
                   }}
                   description="Deseja realmente excluir este agendamento?"
                 />
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+              </div>
+            </div>
+            <div className="space-y-2 text-sm mb-3">
+              <div className="flex items-start gap-2">
+                <span className="text-gray-500 whitespace-nowrap">Descrição:</span>
+                <span className="text-gray-900">{schedule.description}</span>
+              </div>
+            </div>
+            <div className="flex gap-2 flex-wrap">
+              <span className={`px-2 py-1 text-xs font-semibold rounded-full ${getPriorityColor(schedule.priority)}`}>
+                {getPriorityLabel(schedule.priority)}
+              </span>
+              <span className={`px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(schedule.status)}`}>
+                {getStatusLabel(schedule.status)}
+              </span>
+            </div>
+          </div>
+        ))}
       </div>
-    </div>
+    </>
   );
 };
 
